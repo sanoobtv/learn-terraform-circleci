@@ -1,3 +1,3 @@
 output "ami_id" {
-  value = data.aws_ssm_parameter.this.value
+  value = data.aws_ssm_parameter.ami.value
 }
