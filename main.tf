@@ -12,8 +12,8 @@ module "vpc" {
   region = var.main_region
 }
 
-resource "aws_instance" "myinstance" {
-  ami = module.vpc.ami_id
-  instance_type = "t3.micro"
-  subnet_id =module.vpc.subnet_id
+module "ec2" {
+  source = "./modules/ec2"
+  region= var.main_region
 }
+
