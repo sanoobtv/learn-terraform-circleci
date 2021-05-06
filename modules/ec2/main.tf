@@ -9,4 +9,5 @@ resource "aws_instance" "webserver" {
   instance_type = "t1.micro"
   associate_public_ip_address = true
   vpc_security_group_ids = var.sgid
+  subnet_id = ""
 }
