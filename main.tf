@@ -14,7 +14,7 @@ module "vpc" {
 
 module "ec2" {
   source = "./modules/ec2"
-  sgid=module.vpc.publicSGid
+  sgid= [module.vpc.publicSGid]
   #region= var.main_region
 }
 
