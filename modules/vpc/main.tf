@@ -11,7 +11,7 @@ data "aws_availability_zones" "azs"{
 resource "aws_subnet" "this" {
   cidr_block = "10.0.1.0/24"
   name="public"
-  availability_zone = element(data.aws_availability_zones.azs.names,1 )
+  #availability_zone = element(data.aws_availability_zones.azs.names,1 )
   vpc_id = aws_vpc.this.id
 }
 
