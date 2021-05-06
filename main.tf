@@ -15,7 +15,7 @@ module "vpc" {
 module "ec2" {
   source = "./modules/ec2"
   sgid= [module.vpc.publicSGid]
-  sunetid=module.vpc.subnet_id
+  subnetid=module.vpc.subnet_id
   #region= var.main_region
 }
 
