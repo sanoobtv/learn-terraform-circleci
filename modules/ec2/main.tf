@@ -8,5 +8,5 @@ resource "aws_instance" "webserver" {
   ami = data.aws_ssm_parameter.ami.id
   instance_type = "t1.micro"
   associate_public_ip_address = true
-  vpc_security_group_ids = ["${module.vpc.publicSGid}"]
+  vpc_security_group_ids = var.sgid
 }
