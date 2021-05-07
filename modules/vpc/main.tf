@@ -52,6 +52,11 @@ resource "aws_default_route_table" "internetroute" {
   }
 }
 
+resource "aws_route_table_association" "subNetAss" {
+  route_table_id = aws_default_route_table.internetroute.id
+  subnet_id = aws_subnet.public.id
+}
+
 resource "aws_security_group" "publicSG" {
   name = "publicSG"
   vpc_id = aws_vpc.this.id
