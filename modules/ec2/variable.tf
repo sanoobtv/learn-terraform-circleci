@@ -11,4 +11,6 @@ variable "subnetid" {
 }
 
 variable "keyname" {
+  type = string
+  default = "adummyKey"
 }
