@@ -4,4 +4,10 @@ output "publicip" {
 
 output "sshKey" {
   value = aws_key_pair.SSHkeyforWebserver.public_key
+  sensitive = false
+}
+
+output "sshKeyname" {
+  value = aws_key_pair.SSHkeyforWebserver.key_name
+  sensitive = false
 }
