@@ -28,6 +28,12 @@ variable "rules" {
     protocol="TCP"
     cidr_Blocks=["0.0.0.0/0"]
     description="AlloHttps"
+    },
+    {
+    port=1
+    protocol="ICMP"
+    cidr_Blocks=["0.0.0.0/0"]
+    description="AllowPing"
     }
   ]
 }
