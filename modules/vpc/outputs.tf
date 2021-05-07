@@ -1,5 +1,5 @@
 output "subnet_id" {
-  value=aws_subnet.this.id
+  value=aws_subnet.public.id
 }
 
 output "publicSGid" {

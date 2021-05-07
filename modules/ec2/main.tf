@@ -18,6 +18,6 @@ resource "aws_instance" "webserver" {
   ami = data.aws_ami.latest-ubuntu.id
   instance_type = "t1.micro"
   associate_public_ip_address = true
-  vpc_security_group_ids = var.sgid
   subnet_id = var.subnetid
+  security_groups = [var.sgid]
 }
