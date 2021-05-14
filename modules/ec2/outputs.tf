@@ -3,7 +3,7 @@ output "publicip" {
 }
 
 output "sshKey" {
-  value = aws_key_pair.SSHkeyforWebserver.public_key
+  value = aws_key_pair.SSHkeyforWebserver.
   sensitive = false
 }
 
