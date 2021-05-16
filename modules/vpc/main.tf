@@ -3,7 +3,11 @@ provider "aws" {
 }
 resource "aws_vpc" "this" {
   cidr_block = "10.0.0.0/16"
-
+  enable_dns_hostnames = true
+  enable_dns_support = true
+ tags = {
+   name="Terraform"
+ }
 }
 data "aws_availability_zones" "azs"{
   state = "available"
@@ -47,7 +51,6 @@ resource "aws_default_route_table" "internetroute" {
     gateway_id = aws_internet_gateway.igw.id
   }
   tags = {
-    name="IGW TF"
     name="IGW TF"
   }
 }

@@ -1,21 +1,11 @@
-data "aws_ami" "latest-ubuntu" {
-most_recent = true
-owners = ["099720109477"] # Canonical
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+  owners = ["amazon"]
 
   filter {
-      name   = "name"
-      values = ["ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"]
+    name = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
   }
-
-  filter {
-      name   = "virtualization-type"
-      values = ["hvm"]
-  }
-}
-
-resource "tls_private_key" "privateKey" {
-  algorithm = "RSA"
-  rsa_bits = 4096
 }
 
 resource "aws_key_pair" "SSHkeyforWebserver" {
@@ -24,8 +14,7 @@ resource "aws_key_pair" "SSHkeyforWebserver" {
 }
 
 resource "aws_instance" "webserver" {
-  ami = data.aws_ami.latest-ubuntu.id
-
+  ami = data.aws_ami.amazon_linux.id
   instance_type = "t1.micro"
   associate_public_ip_address = true
   subnet_id = var.subnetid
@@ -35,5 +24,8 @@ resource "aws_instance" "webserver" {
   source      = "script.sh"
   destination = "/tmp/script.sh"
   }
+   tags = {
+   name="Terraform"
+ }
 
 }
