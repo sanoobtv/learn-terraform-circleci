@@ -30,7 +30,7 @@ variable "rules" {
     description="AlloHttps"
     },
     {
-    port=1
+    port=-1
     protocol="ICMP"
     cidr_Blocks=["0.0.0.0/0"]
     description="AllowPing"

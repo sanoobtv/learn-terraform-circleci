@@ -12,6 +12,7 @@ owners = ["099720109477"] # Canonical
       values = ["hvm"]
   }
 }
+
 resource "tls_private_key" "privateKey" {
   algorithm = "RSA"
   rsa_bits = 4096
@@ -24,6 +25,7 @@ resource "aws_key_pair" "SSHkeyforWebserver" {
 
 resource "aws_instance" "webserver" {
   ami = data.aws_ami.latest-ubuntu.id
+
   instance_type = "t1.micro"
   associate_public_ip_address = true
   subnet_id = var.subnetid
@@ -33,4 +35,5 @@ resource "aws_instance" "webserver" {
   source      = "script.sh"
   destination = "/tmp/script.sh"
   }
+
 }
