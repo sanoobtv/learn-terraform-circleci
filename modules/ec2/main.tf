@@ -20,11 +20,8 @@ resource "aws_instance" "webserver" {
   subnet_id = var.subnetid
   security_groups = [var.sgid]
   key_name = aws_key_pair.SSHkeyforWebserver.key_name
-  provisioner "file" {
-  source      = "script.sh"
-  destination = "/tmp/script.sh"
-  }
-   tags = {
+  user_data       = fileexists("script.sh") ? file("script.sh") : null
+  tags = {
    name="Terraform"
  }
 
